@@ -11,7 +11,7 @@ import {
 import type { MotionProps } from "motion/react"
 
 import { cn } from "@/lib/utils"
-import { dockVariants } from "./dock.variants"
+import { dockVariants } from "./dock.variants.ts";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string
@@ -22,6 +22,8 @@ export interface DockProps extends VariantProps<typeof dockVariants> {
   direction?: "top" | "middle" | "bottom"
   children: React.ReactNode
 }
+
+
 
 const DEFAULT_SIZE = 40
 const DEFAULT_MAGNIFICATION = 60
