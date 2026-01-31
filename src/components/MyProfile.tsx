@@ -24,7 +24,7 @@ const MyProfile = ({ onClose, zIndex, onFocus }: MyProfileProps) => {
       style={{ zIndex }}
       onPointerDown={onFocus}
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      w-155 h-105
+      w-[90vw] md:w-155 h-[80vh] md:h-105
       rounded-xl
       bg-white/20 backdrop-blur-xl
       border border-white/30
@@ -50,7 +50,7 @@ const MyProfile = ({ onClose, zIndex, onFocus }: MyProfileProps) => {
         </h1>
         <div className="w-12" />
       </div>
-      <div className="h-[calc(100%-40px)] p-4">
+      <div className="h-[calc(100%-40px)] p-4 overflow-y-auto">
         <div className="w-full h-full rounded-lg
           bg-white/30 backdrop-blur-md
           border border-white/20

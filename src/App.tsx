@@ -20,8 +20,8 @@ function App() {
 
       <section className="absolute top-[20%] sm:top-[30%] w-full text-center px-4">
 
-        <h1 className="text-gray-300/50 text-2xl sm:text-6xl font-proo leading-tight">
-          Hi, I&apos;m <span className="font-shep text-8xl text-white">Sunag</span>{" "}
+        <h1 className="text-gray-300/50 text-3xl sm:text-6xl font-proo leading-tight">
+          Hi, I&apos;m <span className="font-shep text-6xl sm:text-8xl text-white">Sunag</span>{" "}
           <br className="hidden sm:block" />a{" "}
           <AuroraText className="font-bold font-proo">
             Frontend Developer

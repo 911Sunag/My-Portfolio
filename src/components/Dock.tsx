@@ -146,26 +146,45 @@ export default function Dock({
   dockHeight = 256,
   baseItemSize = 50
 }: DockProps) {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const mouseX = useMotionValue(Infinity);
   const isHovered = useMotionValue(0);
 
-  const maxHeight = useMemo(() => Math.max(dockHeight, magnification + magnification / 2 + 4), [magnification]);
-  const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
+  // Responsive adjustments
+  const currentMagnification = isMobile ? baseItemSize : magnification; // Disable magnification on mobile or keep it small
+  const currentBaseItemSize = isMobile ? 40 : baseItemSize;
+  const currentPanelHeight = isMobile ? 50 : panelHeight;
+  const currentDistance = isMobile ? 100 : distance;
+
+  const maxHeight = useMemo(() => Math.max(dockHeight, currentMagnification + currentMagnification / 2 + 4), [currentMagnification, dockHeight]);
+  const heightRow = useTransform(isHovered, [0, 1], [currentPanelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
 
   return (
     <motion.div style={{ height, scrollbarWidth: 'none' }} className="mx-2 flex max-w-full items-center">
       <motion.div
         onMouseMove={({ pageX }) => {
-          isHovered.set(1);
-          mouseX.set(pageX);
+          if (!isMobile) {
+            isHovered.set(1);
+            mouseX.set(pageX);
+          }
         }}
         onMouseLeave={() => {
-          isHovered.set(0);
-          mouseX.set(Infinity);
+          if (!isMobile) {
+            isHovered.set(0);
+            mouseX.set(Infinity);
+          }
         }}
         className={`${className} absolute bottom-2 left-1/2 transform -translate-x-1/2 flex items-end w-fit gap-4 rounded-2xl border-neutral-700 border-2 pb-2 px-4`}
-        style={{ height: panelHeight }}
+        style={{ height: currentPanelHeight }}
         role="toolbar"
         aria-label="Application dock"
       >
@@ -176,9 +195,9 @@ export default function Dock({
             className={item.className}
             mouseX={mouseX}
             spring={spring}
-            distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
+            distance={currentDistance}
+            magnification={currentMagnification}
+            baseItemSize={currentBaseItemSize}
           >
             <DockIcon>{item.icon}</DockIcon>
             <DockLabel>{item.label}</DockLabel>
