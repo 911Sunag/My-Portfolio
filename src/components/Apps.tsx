@@ -66,7 +66,7 @@ const Apps = () => {
     },
     {
       icon: <img src={gmainIcon} width={35} height={18} alt="file" />,
-      label: "Gmail me",
+      label: "Sand a mail",
       onClick: () => {
         window.open(
           "https://mail.google.com/mail/?view=cm&fs=1&to=ramsunag@gmail.com&su=Hello%20Sunag&body=Hi%20Sunag,",
