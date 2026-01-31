@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Portfolio
 Frontend Developer | React.js • Next.js • TypeScript • TailwindCSS • Framer Motion • Shadcn/ui Building clean, responsive, and performance-driven web interfaces.
 =======
