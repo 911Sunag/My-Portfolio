@@ -1,26 +1,43 @@
 
+import { motion, useDragControls } from "motion/react";
 
 interface MyProjectsProps {
   onClose: () => void;
+  zIndex?: number;
+  onFocus?: () => void;
 }
 
+const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
+  const controls = useDragControls();
 
-const MyProjects = ({onClose}: MyProjectsProps) => {
   return (
-    <section className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+    <motion.section
+      drag
+      dragControls={controls}
+      dragListener={false}
+      dragMomentum={false}
+      initial={{ scale: 0.9, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      exit={{ scale: 0.9, opacity: 0 }}
+      transition={{ type: "spring", damping: 20, stiffness: 300 }}
+      style={{ zIndex }}
+      onPointerDown={onFocus}
+      className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
       w-155 h-105
       rounded-xl
       bg-white/20 backdrop-blur-xl
       border border-white/30
       shadow-[0_30px_60px_rgba(0,0,0,0.35)]
-      z-1000
       overflow-hidden
     ">
-      <div className="h-10 px-4 flex items-center justify-between
+      <div
+        onPointerDown={(e) => controls.start(e)}
+        className="h-10 px-4 flex items-center justify-between
         bg-white/25 backdrop-blur-md
         border-b border-white/20
+        cursor-default
       ">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2" onPointerDown={(e) => e.stopPropagation()}>
           <button
             onClick={onClose}
             className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-400"
@@ -41,7 +58,7 @@ const MyProjects = ({onClose}: MyProjectsProps) => {
         ">
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState, useMemo, useId, FC, PointerEvent } from 'react';
+import { useRef, useEffect, useState, useMemo, useId, type FC, type PointerEvent } from 'react';
 
 interface CurvedLoopProps {
   marqueeText?: string;
@@ -27,6 +27,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   const pathRef = useRef<SVGPathElement | null>(null);
   const [spacing, setSpacing] = useState(0);
   const [offset, setOffset] = useState(0);
+  const [isDragging, setIsDragging] = useState(false);
   const uid = useId();
   const pathId = `curve-${uid}`;
   const pathD = `M-100,40 Q500,${40 + curveAmount} 1540,40`;
@@ -39,8 +40,8 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   const textLength = spacing;
   const totalText = textLength
     ? Array(Math.ceil(1800 / textLength) + 2)
-        .fill(text)
-        .join('')
+      .fill(text)
+      .join('')
     : text;
   const ready = spacing > 0;
 
@@ -53,7 +54,6 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
     if (textPathRef.current) {
       const initial = -spacing;
       textPathRef.current.setAttribute('startOffset', initial + 'px');
-      setOffset(initial);
     }
   }, [spacing]);
 
@@ -80,6 +80,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   const onPointerDown = (e: PointerEvent) => {
     if (!interactive) return;
     dragRef.current = true;
+    setIsDragging(true);
     lastXRef.current = e.clientX;
     velRef.current = 0;
     (e.target as HTMLElement).setPointerCapture(e.pointerId);
@@ -102,10 +103,11 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   const endDrag = () => {
     if (!interactive) return;
     dragRef.current = false;
+    setIsDragging(false);
     dirRef.current = velRef.current > 0 ? 'right' : 'left';
   };
 
-  const cursorStyle = interactive ? (dragRef.current ? 'grabbing' : 'grab') : 'auto';
+  const cursorStyle = interactive ? (isDragging ? 'grabbing' : 'grab') : 'auto';
 
   return (
     <div
@@ -117,7 +119,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
       onPointerLeave={endDrag}
     >
       <svg
-        className="select-none w-full overflow-visible block aspect-[100/12] text-[6rem] font-bold uppercase leading-none"
+        className="select-none w-full overflow-visible block aspect-100/12 text-[6rem] font-bold uppercase leading-none"
         viewBox="0 0 1440 120"
       >
         <text ref={measureRef} xmlSpace="preserve" style={{ visibility: 'hidden', opacity: 0, pointerEvents: 'none' }}>

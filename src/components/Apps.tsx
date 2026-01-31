@@ -11,22 +11,41 @@ import MyProjects from "./MyProjects";
 import { AnimatePresence } from "motion/react";
 
 const Apps = () => {
-  const [active, setActive] = useState(null);
+  // Store the order of active windows. The last element is on top (highest z-index).
+  const [windowOrder, setWindowOrder] = useState<string[]>([]);
 
-  const toggleComponent = (name) => {
-    setActive((prev) => (prev === name ? null : name));
+  const openApp = (name: string) => {
+    setWindowOrder((prev) => {
+      // If already open, move to front
+      if (prev.includes(name)) {
+        return [...prev.filter((item) => item !== name), name];
+      }
+      // If not open, add to front
+      return [...prev, name];
+    });
+  };
+
+  const closeApp = (name: string) => {
+    setWindowOrder((prev) => prev.filter((item) => item !== name));
+  };
+
+  const focusApp = (name: string) => {
+    setWindowOrder((prev) => {
+      if (prev[prev.length - 1] === name) return prev; // Already focused
+      return [...prev.filter((item) => item !== name), name];
+    });
   };
 
   const items = [
     {
       icon: <img src={userIcon} width={35} height={18} alt="user" />,
       label: "My Profile",
-      onClick: () => toggleComponent("myProfile"),
+      onClick: () => openApp("myProfile"),
     },
     {
       icon: <img src={fileIcon} width={35} height={18} alt="user" />,
       label: "My Projects",
-      onClick: () => toggleComponent("Projects"),
+      onClick: () => openApp("Projects"),
     },
     {
       icon: <img src={githubIcon} width={35} height={18} alt="file" />,
@@ -65,7 +84,9 @@ const Apps = () => {
         );
       },
     },
+
   ];
+
   return (
     <section>
       <div className="dock-wrapper">
@@ -77,11 +98,19 @@ const Apps = () => {
         />
       </div>
       <AnimatePresence>
-        {active === "myProfile" && (
-          <MyProfile onClose={() => setActive(null)} />
+        {windowOrder.includes("myProfile") && (
+          <MyProfile
+            onClose={() => closeApp("myProfile")}
+            zIndex={windowOrder.indexOf("myProfile") + 10}
+            onFocus={() => focusApp("myProfile")}
+          />
         )}
-        {active === "Projects" && (
-          <MyProjects onClose={() => setActive(null)} />
+        {windowOrder.includes("Projects") && (
+          <MyProjects
+            onClose={() => closeApp("Projects")}
+            zIndex={windowOrder.indexOf("Projects") + 10}
+            onFocus={() => focusApp("Projects")}
+          />
         )}
       </AnimatePresence>
     </section>
