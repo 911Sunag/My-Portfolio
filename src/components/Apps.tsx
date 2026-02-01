@@ -59,8 +59,8 @@ const Apps = () => {
       label: "Click to download resume",
       onClick: () => {
         const link = document.createElement("a");
-        link.href = "Sunag_Arigala_Resume.pdf";
-        link.download = "Sunag_Arigala_Resume.pdf";
+        link.href = "Sunag_Resume.pdf";
+        link.download = "Sunag_Resume.pdf";
         link.click();
       },
     },
