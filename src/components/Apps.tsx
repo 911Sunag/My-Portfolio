@@ -59,17 +59,17 @@ const Apps = () => {
       label: "Click to download resume",
       onClick: () => {
         const link = document.createElement("a");
-        link.href = "Sunag_Resume.pdf";
-        link.download = "Sunag_Resume.pdf";
+        link.href = "Sunag_Resumee.pdf";
+        link.download = "Sunag_Resumee.pdf";
         link.click();
       },
     },
     {
       icon: <img src={gmainIcon} width={35} height={18} alt="file" />,
-      label: "Sand a mail",
+      label: "Send a mail",
       onClick: () => {
         window.open(
-          "https://mail.google.com/mail/?view=cm&fs=1&to=ramsunag@gmail.com&su=Hello%20Sunag&body=Hi%20Sunag,",
+          "https://mail.google.com/mail/?view=cm&fs=1&to=sunag.arigala@gmail.com&su=Hello%20Sunag&body=Hi%20Sunag,",
           "_blank",
         );
       },
