@@ -69,7 +69,7 @@ const Apps = () => {
       label: "Send a mail",
       onClick: () => {
         window.open(
-          "https://mail.google.com/mail/?view=cm&fs=1&to=sunag.arigala@gmail.com&su=Hello%20Sunag&body=Hi%20Sunag,",
+          "https://mail.google.com/mail/?view=cm&fs=1&to=sunag.arigala@gmail.com&su=Job%20Opportunity%20%7C%20Sunag%20Arigala&body=Hi%20Sunag,%0A%0AI%20am%20reaching%20out%20regarding%20a%20potential%20role%20at%20[Company%20Name].%20We%20would%20love%20to%20discuss%20your%20background%20further.",
           "_blank",
         );
       },
