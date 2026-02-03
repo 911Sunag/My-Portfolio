@@ -30,6 +30,8 @@ function App() {
           Specialized in...
         </h1>
 
+        {/* nevver mind */}
+
         <CurvedLoop
           marqueeText="Tailwindcss ✦ React.js ✦ Next.js ✦ TypeScript ✦ Framer Motion ✦ Shadcn/ui ✦"
           speed={3.0}

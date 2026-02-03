@@ -17,6 +17,8 @@ body,button {
   cursor: url('/icons8-3d-pointer-32.png'), auto;
   user-select: none;
 }
+
+/* dont */
 .glass-dark {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(18px);

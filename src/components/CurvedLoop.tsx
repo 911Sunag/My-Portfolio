@@ -138,7 +138,7 @@ const CurvedLoop: FC<CurvedLoopProps> = ({
   };
 
   const cursorStyle = interactive ? (isDragging ? "grabbing" : "grab") : "auto";
-
+// hell
   return (
     <div
       className="flex items-center justify-center w-full mt-10"
