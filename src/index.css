@@ -15,6 +15,7 @@
 }
 body,button {
   cursor: url('/icons8-3d-pointer-32.png'), auto;
+  user-select: none;
 }
 .glass-dark {
   background: rgba(255, 255, 255, 0.06);

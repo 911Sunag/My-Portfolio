@@ -27,11 +27,12 @@ function App() {
             Frontend Developer
           </AuroraText>
           .
+          Specialized in...
         </h1>
 
         <CurvedLoop
-          marqueeText="Buildling ✦ Modern ✦ Web ✦ Interfaces ✦ With ✦ React ✦"
-          speed={2.0}
+          marqueeText="Tailwindcss ✦ React.js ✦ Next.js ✦ TypeScript ✦ Framer Motion ✦ Shadcn/ui ✦"
+          speed={3.0}
           curveAmount={150}
           direction="left"
           interactive
