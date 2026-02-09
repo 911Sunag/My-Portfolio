@@ -10,9 +10,15 @@ interface AuroraTextProps {
 export const AuroraText = memo(
   ({
     children,
-    className = "",
-    colors = ["#FF0080", "#7928CA", "#0070F3", "#38bdf8"],
-    speed = 1,
+    className = "drop-shadow-[0_1px_1px_rgba(255,215,128,0.35)]",
+    colors = [
+      "#FFF6CC",
+      "#F5D06F",
+      "#E6B65C",
+      "#C99700",
+      "#FFF6CC",
+    ],
+    speed = 0.7,
   }: AuroraTextProps) => {
     const gradientStyle = {
       backgroundImage: `linear-gradient(135deg, ${colors.join(", ")}, ${

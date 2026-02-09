@@ -10,7 +10,7 @@ function App() {
     <main className="min-h-screen bg-black">
       <div className="w-full h-96 sm:h-149 relative overflow-hidden ">
         <Aurora
-          colorStops={["#7cff67", "#B19EEF", "#5227FF"]}
+          colorStops={["#caf0f8", "#00b4d8", "#03045e"]}
           blend={0.89}
           amplitude={1.5}
           speed={1.0}
