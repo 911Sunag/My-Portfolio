@@ -5,6 +5,8 @@ import resumeIcon from "../assets/icons/pdf.png";
 import githubIcon from "../assets/icons/GitHub_Invertocat_White_Clearspace.png";
 import gmainIcon from "../assets/icons/icons8-gmail.svg";
 import linkedinIcon from "../assets/icons/icons8-linkedin.svg";
+import AppleMusic from "../assets/icons/standard.svg";
+
 import { useState } from "react";
 import MyProfile from "./MyProfile";
 import MyProjects from "./MyProjects";
@@ -55,12 +57,22 @@ const Apps = () => {
       },
     },
     {
+      icon: <img src={AppleMusic} width={35} height={18} alt="file" />,
+      label: "Music",
+      onClick: () => {
+        window.open(
+          "https://www.linkedin.com/in/sunag-arigala-0a211b3a9/",
+          "_blank",
+        );
+      },
+    },
+    {
       icon: <img src={resumeIcon} width={35} height={18} alt="file" />,
       label: "Click to download resume",
       onClick: () => {
         const link = document.createElement("a");
-        link.href = "Sunag_Resumee.pdf";
-        link.download = "Sunag_Resumee.pdf";
+        link.href = "";
+        link.download = "";
         link.click();
       },
     },
@@ -79,7 +91,7 @@ const Apps = () => {
       label: "LinkedIN",
       onClick: () => {
         window.open(
-          "https://www.linkedin.com/in/sunag-arigala-0a211b3a9/",
+          "https://www.linkedin.com/in/sunag-arigala",
           "_blank",
         );
       },

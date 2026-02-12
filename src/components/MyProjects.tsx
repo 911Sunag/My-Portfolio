@@ -1,5 +1,5 @@
-
 import { motion, useDragControls } from "motion/react";
+import folderIcon from "../assets/icons/icons8-folder-128.png";
 
 interface MyProjectsProps {
   onClose: () => void;
@@ -29,15 +29,20 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
       border border-white/30
       shadow-[0_30px_60px_rgba(0,0,0,0.35)]
       overflow-hidden
-    ">
+    "
+    >
       <div
         onPointerDown={(e) => controls.start(e)}
         className="h-10 px-4 flex items-center justify-between
         bg-white/25 backdrop-blur-md
         border-b border-white/20
         cursor-default
-      ">
-        <div className="flex items-center gap-2" onPointerDown={(e) => e.stopPropagation()}>
+      "
+      >
+        <div
+          className="flex items-center gap-2"
+          onPointerDown={(e) => e.stopPropagation()}
+        >
           <button
             onClick={onClose}
             className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-400"
@@ -50,16 +55,31 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
         <div className="w-12" />
       </div>
       <div className="h-[calc(100%-40px)] p-4 overflow-y-auto">
-        <div className="w-full h-full rounded-lg
+        <div
+          className="w-full h-full rounded-lg
           bg-white/30 backdrop-blur-md
           border border-white/20
           shadow-inner
-          flex flex-col items-center
-        ">
+          flex flex-col items-start p-5
+        "
+        >
+          <a
+            href="https://sprout-ecom.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-2"
+          >
+            <img
+              src={folderIcon}
+              alt="Project Folder"
+              className="w-22 h-22 object-contain group-hover:scale-110 transition-transform duration-200"
+            />
+            <span className="text-white/90 font-medium text-[10px]">Sprout Ecommerce</span>
+          </a>
         </div>
       </div>
     </motion.section>
-  )
-}
+  );
+};
 
-export default MyProjects
+export default MyProjects;
