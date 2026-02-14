@@ -23,7 +23,7 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
       style={{ zIndex }}
       onPointerDown={onFocus}
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      w-[90vw] md:w-155 h-[80vh] md:h-105
+      w-[95vw] md:w-[900px] h-[80vh] md:h-[600px]
       rounded-2xl
       bg-white/10 backdrop-blur-3xl
       border border-white/20

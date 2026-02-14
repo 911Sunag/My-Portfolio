@@ -1,8 +1,23 @@
 
+
+import TextType from "./TextType"
 import { OrbitingCircles } from "./ui/orbiting-circles"
+import { useState, useEffect } from "react"
 
 
 const AboutSection = () => {
+  const [orbitRadius, setOrbitRadius] = useState(150);
+
+  useEffect(() => {
+    const updateRadius = () => {
+      setOrbitRadius(window.innerWidth < 768 ? 90 : 150);
+    };
+
+    updateRadius();
+    window.addEventListener("resize", updateRadius);
+    return () => window.removeEventListener("resize", updateRadius);
+  }, []);
+
   return (
     <section className="w-full text-green-400 font-mono text-xs md:text-sm p-2">
       <div className="mb-6">
@@ -16,10 +31,19 @@ const AboutSection = () => {
           <span className="text-purple-400">~</span>
           <span className="text-white">$ whoami</span>
           <div className="mt-2 text-white/90">
-            <h1 className="text-2xl font-bold mb-1">Sunag Arigala</h1>
-            <h2 className="text-lg opacity-80">Frontend Developer</h2>
+            <h1 className="text-2xl md:text-4xl font-bold text-green-400">
+              <TextType
+                text={["Sunag Arigala", "Frontend Developer"]}
+                typingSpeed={75}
+                pauseDuration={450}
+                showCursor
+                cursorCharacter="_"
+                deletingSpeed={35}
+                cursorBlinkDuration={0.5}
+              />
+            </h1>
             <p className="mt-2 max-w-2xl opacity-70">
-              Performance-driven Frontend Developer with 3 years of experience building scalable, high-performance web applications using React.js and Next.js. Based in Machilipatnam, India.
+              Performance-driven Frontend Developer with 3 years of experience building scalable, high-performance web applications using React.js and Next.js.
             </p>
           </div>
         </div>
@@ -30,7 +54,7 @@ const AboutSection = () => {
           <span className="text-purple-400">~</span>
           <span className="text-white">$ cat stats.json</span>
           <div className="mt-2 text-yellow-300">
-            <pre>{`{
+            <pre className="overflow-x-auto">{`{
   "SEO Growth": "+40%",
   "Engagement": "+35%",
   "Load Speed": "+35%",
@@ -45,7 +69,7 @@ const AboutSection = () => {
           <span className="text-purple-400">~</span>
           <span className="text-white">$ ls -la skills/</span>
           <div className="mt-8 flex h-[350px] w-full items-center justify-center relative overflow-hidden rounded-xl  bg-white/90">
-            <OrbitingCircles className="size-[80px] border-none bg-transparent" duration={25} delay={0} radius={150}>
+            <OrbitingCircles className="size-[80px] border-none bg-transparent" duration={25} delay={0} radius={orbitRadius}>
               <span className="text-orange-600 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">HTML</span>
               <span className="text-blue-400 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">TailwindCSS</span>
               <span className="text-yellow-400 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">JavaScript</span>
@@ -56,7 +80,7 @@ const AboutSection = () => {
               <span className="text-blue-400 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">React</span>
             </OrbitingCircles>
 
-            <OrbitingCircles className="size-[65px] border-none bg-transparent" radius={80} duration={20} reverse>
+            <OrbitingCircles className="size-[65px] border-none bg-transparent" radius={orbitRadius * 0.5 + 5} duration={20} reverse>
               <span className="text-blue-400 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">Jira</span>
               <span className="text-yellow-400 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">Framer Motion</span>
               <span className="text-pink-500 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">Figma</span>
