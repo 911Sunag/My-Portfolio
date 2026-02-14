@@ -37,7 +37,7 @@ const Messages = ({ onClose, zIndex, onFocus }: MessagesProps) => {
           border-b border-white/10
           cursor-default shrink-0
       ">
-                {/* Traffic Lights (Window Controls) */}
+                
                 <div className="flex items-center gap-2" onPointerDown={(e) => e.stopPropagation()}>
                     <button
                         onClick={onClose}
@@ -53,18 +53,18 @@ const Messages = ({ onClose, zIndex, onFocus }: MessagesProps) => {
                 </div>
 
                 <div className="w-10 flex justify-end">
-                    {/* Placeholder for camera/new msg icon if needed later */}
+                    
                 </div>
             </div>
 
-            {/* Messages Content */}
+            
             <div className="flex-1 p-3 overflow-y-auto w-full no-scrollbar flex flex-col gap-3">
-                {/* Date Stamp */}
+                
                 <div className="text-center py-2">
                     <span className="text-[10px] text-white/40 font-medium">Today</span>
                 </div>
 
-                {/* Message 1: Music Player */}
+                
                 <div className="flex flex-col items-start max-w-[85%] self-start animate-in fade-in slide-in-from-bottom-2 duration-500">
                     <div className="bg-white backdrop-blur-sm border border-black/5 px-3 py-2 rounded-2xl rounded-tl-sm text-black text-[13px] leading-relaxed shadow-sm">
                         Hey there! 👋
@@ -76,7 +76,7 @@ const Messages = ({ onClose, zIndex, onFocus }: MessagesProps) => {
                     </div>
                 </div>
 
-                {/* Message 2: Draggable */}
+                
                 <div className="flex flex-col items-start max-w-[85%] self-start animate-in fade-in slide-in-from-bottom-2 duration-700 delay-300">
                     <div className="bg-white backdrop-blur-sm border border-black/5 px-3 py-2 rounded-2xl rounded-tl-sm text-black text-[13px] leading-relaxed shadow-sm">
                         Also, notice anything cool? 👀
@@ -87,7 +87,7 @@ const Messages = ({ onClose, zIndex, onFocus }: MessagesProps) => {
                 </div>
             </div>
 
-            {/* Input Placeholder (Visual only) */}
+            
             <div className="h-12 px-3 flex items-center gap-2 bg-white/5 border-t border-white/10 shrink-0">
                 <div className="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center cursor-pointer hover:bg-white/20 transition-colors">
                     <span className="text-white/50 text-base pb-0.5">+</span>

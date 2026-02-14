@@ -159,7 +159,7 @@ export default function Dock({
   const isHovered = useMotionValue(0);
 
   // Responsive adjustments
-  const currentMagnification = isMobile ? baseItemSize : magnification; // Disable magnification on mobile or keep it small
+  const currentMagnification = isMobile ? baseItemSize : magnification; 
   const currentBaseItemSize = isMobile ? 40 : baseItemSize;
   const currentPanelHeight = isMobile ? 50 : panelHeight;
   const currentDistance = isMobile ? 100 : distance;

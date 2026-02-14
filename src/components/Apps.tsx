@@ -21,11 +21,11 @@ const Apps = () => {
 
   const openApp = (name: string) => {
     setWindowOrder((prev) => {
-      // If already open, move to front
+      
       if (prev.includes(name)) {
         return [...prev.filter((item) => item !== name), name];
       }
-      // If not open, add to front
+      
       return [...prev, name];
     });
   };

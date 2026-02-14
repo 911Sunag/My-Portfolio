@@ -18,7 +18,7 @@ const MusicWidget = ({ onClose }: MusicWidgetProps) => {
             className="fixed top-5 right-4 z-0 w-full max-w-[320px] rounded-2xl shadow-2xl bg-[#000510]"
         >
             <div className="relative group">
-                {/* Close Button */}
+                
                 <button
                     onClick={onClose}
                     className="absolute -top-3 -right-3 bg-neutral-800 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-110 shadow-md border border-neutral-700 cursor-pointer"
@@ -46,7 +46,7 @@ const MusicWidget = ({ onClose }: MusicWidgetProps) => {
                     className="cursor-move"
                 />
 
-                {/* Drag handle overlay for top area if iframe captures clicks too aggressively */}
+               
                 <div className="absolute top-0 left-0 w-full h-4 z-105 cursor-grab active:cursor-grabbing" />
             </div>
         </motion.div>
