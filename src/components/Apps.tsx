@@ -1,7 +1,7 @@
 import Dock from "./Dock";
 import userIcon from "../assets/icons/user.svg";
 import fileIcon from "../assets/icons/icons8-folder-128.png";
-import resumeIcon from "../assets/icons/pdf.png";
+
 import githubIcon from "../assets/icons/GitHub_Invertocat_White_Clearspace.png";
 import OGGreenIcon from "../assets/icons/OG Green Icon (1).svg";
 import gmainIcon from "../assets/icons/icons8-gmail.svg";
@@ -76,16 +76,7 @@ const Apps = () => {
       label: "Music",
       onClick: () => setIsMusicOpen((prev) => !prev),
     },
-    {
-      icon: <img src={resumeIcon} width={30} height={18} alt="file" />,
-      label: "Click to download resume",
-      onClick: () => {
-        const link = document.createElement("a");
-        link.href = "";
-        link.download = "";
-        link.click();
-      },
-    },
+
     {
       icon: <img src={gmainIcon} width={35} height={18} alt="file" />,
       label: "Send a mail",

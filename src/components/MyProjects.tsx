@@ -1,5 +1,6 @@
 import { motion, useDragControls } from "motion/react";
 import folderIcon from "../assets/icons/icons8-folder-128.png";
+import resumeIcon from "../assets/icons/pdf.png";
 
 interface MyProjectsProps {
   onClose: () => void;
@@ -67,6 +68,22 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
             />
             <span className="text-white/90 font-medium text-xs text-center leading-tight shadow-black/50 drop-shadow-sm">
               Sprout Ecommerce
+            </span>
+          </a>
+
+          <a
+            href=""
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors duration-200"
+          >
+            <img
+              src={resumeIcon}
+              alt="Resume"
+              className="w-16 h-16 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-200"
+            />
+            <span className="text-white/90 font-medium text-xs text-center leading-tight shadow-black/50 drop-shadow-sm">
+              My Resume
             </span>
           </a>
         </div>
