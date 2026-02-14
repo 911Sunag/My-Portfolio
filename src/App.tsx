@@ -23,18 +23,19 @@ function App() {
         <h1 className="text-gray-300/50 text-3xl sm:text-6xl font-proo leading-tight">
           Hi, I&apos;m <span className="font-shep text-6xl sm:text-8xl text-white">Sunag</span>{" "}
           <br className="hidden sm:block" />a{" "}
-          <AuroraText className="font-bold font-proo">
+          <AuroraText
+            className="font-bold font-proo"
+            colors={["#4facfe", "#00f2fe", "#00c6fb", "#005bea"]}
+          >
             Frontend Developer
           </AuroraText>
-          .
-          Specialized in...
         </h1>
 
         {/* nevver mind */}
 
         <CurvedLoop
-          marqueeText="Tailwindcss ✦ React.js ✦ Next.js ✦ TypeScript ✦ Framer Motion ✦ Shadcn/ui ✦"
-          speed={3.0}
+          marqueeText="✦ React.js ✦ Next.js ✦ TypeScript ✦ Framer Motion ✦ Shadcn/ui ✦"
+          speed={2.0}
           curveAmount={150}
           direction="left"
           interactive

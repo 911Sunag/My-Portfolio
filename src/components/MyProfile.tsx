@@ -24,37 +24,38 @@ const MyProfile = ({ onClose, zIndex, onFocus }: MyProfileProps) => {
       style={{ zIndex }}
       onPointerDown={onFocus}
       className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-      w-[90vw] md:w-155 h-[80vh] md:h-105
-      rounded-xl
-      bg-white/20 backdrop-blur-xl
-      border border-white/30
-      shadow-[0_30px_60px_rgba(0,0,0,0.35)]
-      overflow-hidden
+      w-[95vw] md:w-[900px] h-[65vh] md:h-[550px]
+      rounded-lg
+      bg-[#0d1117]/95 
+      border border-white/10
+      shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]
+      overflow-hidden font-mono
+      text-white
     ">
       <div
         onPointerDown={(e) => controls.start(e)}
-        className="h-10 px-4 flex items-center justify-between
-        bg-white/25 backdrop-blur-md
-        border-b border-white/20
-        cursor-default
+        className="h-9 px-4 flex items-center justify-between
+        bg-[#161b22]
+        border-b border-white/5
+        cursor-default shrink-0
       ">
         <div className="flex items-center gap-2" onPointerDown={(e) => e.stopPropagation()}>
           <button
             onClick={onClose}
-            className="w-3.5 h-3.5 rounded-full bg-red-500 hover:bg-red-400"
+            className="w-3 h-3 rounded-full bg-[#FF5F57] hover:bg-[#FF5F57]/80 transition-colors border border-[#E0443E]"
           />
+          <div className="w-3 h-3 rounded-full bg-[#FEBC2E] border border-[#D89E24] cursor-not-allowed" />
+          <div className="w-3 h-3 rounded-full bg-[#28C840] border border-[#1AAB29] cursor-not-allowed" />
         </div>
 
-        <h1 className="text-lg font-medium text-white/90 select-none font-pop">
+        <h1 className="text-sm font-medium text-white/80 select-none font-pop">
           Profile
         </h1>
-        <div className="w-12" />
+        <div className="w-14" />
       </div>
-      <div className="h-[calc(100%-40px)] p-4 overflow-y-auto">
-        <div className="w-full h-full rounded-lg
-          bg-white/30 backdrop-blur-md
-          border border-white/20
-          shadow-inner
+      <div className="h-[calc(100%-40px)] overflow-y-auto no-scrollbar">
+        <div className="w-full h-full
+          bg-transparent
           flex flex-col items-center
         ">
           <AboutSection />

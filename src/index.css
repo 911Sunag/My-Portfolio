@@ -13,8 +13,8 @@
   --font-shep:"Mrs Sheppards",sans-serif;
   --font-proo:"SN Pro",sans-serif;
 }
-body,button {
-  cursor: url('/icons8-3d-pointer-32.png'), auto;
+html, body, button, a, [role="button"] {
+  cursor: url('/custom-pointer.svg') 0 0, auto;
   user-select: none;
 }
 
@@ -31,8 +31,6 @@ body,button {
   display: flex;
   justify-content: center;
 }
-
-
 
 @theme inline {
   --radius-sm:calc(var(--radius) - 4px);
@@ -192,4 +190,14 @@ body,button {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Utility to hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

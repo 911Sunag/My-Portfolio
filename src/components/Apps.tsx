@@ -3,18 +3,21 @@ import userIcon from "../assets/icons/user.svg";
 import fileIcon from "../assets/icons/icons8-folder-128.png";
 import resumeIcon from "../assets/icons/pdf.png";
 import githubIcon from "../assets/icons/GitHub_Invertocat_White_Clearspace.png";
+import OGGreenIcon from "../assets/icons/OG Green Icon (1).svg";
 import gmainIcon from "../assets/icons/icons8-gmail.svg";
 import linkedinIcon from "../assets/icons/icons8-linkedin.svg";
 import AppleMusic from "../assets/icons/standard.svg";
-
 import { useState } from "react";
 import MyProfile from "./MyProfile";
 import MyProjects from "./MyProjects";
+import MusicWidget from "./MusicWidget";
+import Messages from "./Messages";
 import { AnimatePresence } from "motion/react";
 
 const Apps = () => {
   // Store the order of active windows. The last element is on top (highest z-index).
   const [windowOrder, setWindowOrder] = useState<string[]>([]);
+  const [isMusicOpen, setIsMusicOpen] = useState(false);
 
   const openApp = (name: string) => {
     setWindowOrder((prev) => {
@@ -40,6 +43,18 @@ const Apps = () => {
 
   const items = [
     {
+      icon: (
+        <div className="relative">
+          <img src={OGGreenIcon} width={35} height={18} alt="file" />
+          <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] text-white">
+            2
+          </span>
+        </div>
+      ),
+      label: "iMessage",
+      onClick: () => openApp("Messages"),
+    },
+    {
       icon: <img src={userIcon} width={35} height={18} alt="user" />,
       label: "My Profile",
       onClick: () => openApp("myProfile"),
@@ -57,17 +72,12 @@ const Apps = () => {
       },
     },
     {
-      icon: <img src={AppleMusic} width={35} height={18} alt="file" />,
+      icon: <img src={AppleMusic} width={30} height={18} alt="file" />,
       label: "Music",
-      onClick: () => {
-        window.open(
-          "https://www.linkedin.com/in/sunag-arigala-0a211b3a9/",
-          "_blank",
-        );
-      },
+      onClick: () => setIsMusicOpen((prev) => !prev),
     },
     {
-      icon: <img src={resumeIcon} width={35} height={18} alt="file" />,
+      icon: <img src={resumeIcon} width={30} height={18} alt="file" />,
       label: "Click to download resume",
       onClick: () => {
         const link = document.createElement("a");
@@ -95,8 +105,7 @@ const Apps = () => {
           "_blank",
         );
       },
-    },
-
+    }
   ];
 
   return (
@@ -112,6 +121,7 @@ const Apps = () => {
       <AnimatePresence>
         {windowOrder.includes("myProfile") && (
           <MyProfile
+            key="myProfile"
             onClose={() => closeApp("myProfile")}
             zIndex={windowOrder.indexOf("myProfile") + 10}
             onFocus={() => focusApp("myProfile")}
@@ -119,9 +129,24 @@ const Apps = () => {
         )}
         {windowOrder.includes("Projects") && (
           <MyProjects
+            key="Projects"
             onClose={() => closeApp("Projects")}
             zIndex={windowOrder.indexOf("Projects") + 10}
             onFocus={() => focusApp("Projects")}
+          />
+        )}
+        {isMusicOpen && (
+          <MusicWidget
+            key="musicWidget"
+            onClose={() => setIsMusicOpen(false)}
+          />
+        )}
+        {windowOrder.includes("Messages") && (
+          <Messages
+            key="Messages"
+            onClose={() => closeApp("Messages")}
+            zIndex={windowOrder.indexOf("Messages") + 10}
+            onFocus={() => focusApp("Messages")}
           />
         )}
       </AnimatePresence>
