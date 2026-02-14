@@ -19,7 +19,7 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section className="w-full text-green-400 font-mono text-xs md:text-sm p-2">
+    <section className="w-full text-green-400 font-mono text-xs md:text-sm p-2 pb-20">
       <div className="mb-6">
         <div className="flex gap-2 text-white/50 mb-4">
           <span>Last login: {new Date().toDateString()} on ttys000</span>
@@ -68,7 +68,7 @@ const AboutSection = () => {
           <span className="text-white">:</span>
           <span className="text-purple-400">~</span>
           <span className="text-white">$ ls -la skills/</span>
-          <div className="mt-8 flex h-[350px] w-full items-center justify-center relative overflow-hidden rounded-xl  bg-white/90">
+          <div className="mt-8 flex h-[250px] md:h-[350px] w-full items-center justify-center relative overflow-hidden rounded-xl  bg-white/90">
             <OrbitingCircles className="size-[80px] border-none bg-transparent" duration={25} delay={0} radius={orbitRadius}>
               <span className="text-orange-600 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">HTML</span>
               <span className="text-blue-400 font-bold text-xs bg-black/80 px-2 py-1.5 rounded border border-white/10">TailwindCSS</span>
