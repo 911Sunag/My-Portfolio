@@ -70,6 +70,21 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
               Sprout Ecommerce
             </span>
           </a>
+           <a
+            href="https://simply-shokupan.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors duration-200"
+          >
+            <img
+              src={folderIcon}
+              alt="Project Folder"
+              className="w-16 h-16 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-200"
+            />
+            <span className="text-white/90 font-medium text-xs text-center leading-tight shadow-black/50 drop-shadow-sm">
+              Simply Shokupan
+            </span>
+          </a>
 
           <a
             href=""
