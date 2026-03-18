@@ -31,15 +31,20 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
       shadow-[0_25px_50px_-12px_rgba(0,0,0,0.5)]
       overflow-hidden font-sans
       text-white
-    ">
+    "
+    >
       <div
         onPointerDown={(e) => controls.start(e)}
         className="h-10 px-4 flex items-center justify-between
         bg-white/5 backdrop-blur-md
         border-b border-white/10
         cursor-default shrink-0
-      ">
-        <div className="flex items-center gap-2" onPointerDown={(e) => e.stopPropagation()}>
+      "
+      >
+        <div
+          className="flex items-center gap-2"
+          onPointerDown={(e) => e.stopPropagation()}
+        >
           <button
             onClick={onClose}
             className="w-3 h-3 rounded-full bg-[#FF5F57] hover:bg-[#FF5F57]/80 transition-colors border border-[#E0443E]"
@@ -70,7 +75,7 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
               Sprout Ecommerce
             </span>
           </a>
-           <a
+          <a
             href="https://simply-shokupan.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
@@ -83,6 +88,22 @@ const MyProjects = ({ onClose, zIndex, onFocus }: MyProjectsProps) => {
             />
             <span className="text-white/90 font-medium text-xs text-center leading-tight shadow-black/50 drop-shadow-sm">
               Simply Shokupan
+            </span>
+          </a>
+
+          <a
+            href="https://docs-dot.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col items-center gap-3 p-2 rounded-xl hover:bg-white/10 transition-colors duration-200"
+          >
+            <img
+              src={folderIcon}
+              alt="Project Folder"
+              className="w-16 h-16 object-contain drop-shadow-md group-hover:scale-105 transition-transform duration-200"
+            />
+            <span className="text-white/90 font-medium text-xs text-center leading-tight shadow-black/50 drop-shadow-sm">
+              Docsdot-Ai
             </span>
           </a>
 
